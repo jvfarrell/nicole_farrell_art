@@ -1,0 +1,285 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+
+@include mat.core();
+
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-venteragreen: (
+    50 : #eaf5e0,
+    100 : #cce5b3,
+    200 : #aad480,
+    300 : #87c24d,
+    400 : #6eb526,
+    500 : #54a800,
+    600 : #4da000,
+    700 : #439700,
+    800 : #3a8d00,
+    900 : #297d00,
+    A100 : #bfffaa,
+    A200 : #98ff77,
+    A400 : #72ff44,
+    A700 : #5fff2a,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-venteragrey: (
+    50 : #e6e8e9,
+    100 : #c2c5c8,
+    200 : #999fa4,
+    300 : #707880,
+    400 : #515b64,
+    500 : #323e49,
+    600 : #2d3842,
+    700 : #263039,
+    800 : #1f2831,
+    900 : #131b21,
+    A100 : #65b9ff,
+    A200 : #32a2ff,
+    A400 : #008bfe,
+    A700 : #007de5,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$md-venteradarkgreen: (
+    50 : #e0f0e8,
+    100 : #b3d9c5,
+    200 : #80c09e,
+    300 : #4da777,
+    400 : #26945a,
+    500 : #00813d,
+    600 : #007937,
+    700 : #006e2f,
+    800 : #006427,
+    900 : #00511a,
+    A100 : #84ff9e,
+    A200 : #51ff76,
+    A400 : #1eff4e,
+    A700 : #04ff3a,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+/* For use in src/lib/core/theming/_palette.scss */
+/* For use in src/lib/core/theming/_palette.scss */
+$md-plum: (
+  50: #ede6e9,
+  100: #d1c1c8,
+  200: #b398a3,
+  300: #956f7e,
+  400: #7e5063,
+  500: #673147,
+  600: #5f2c40,
+  700: #542537,
+  800: #4a1f2f,
+  900: #391320,
+  A100: #ff77a1,
+  A200: #ff447e,
+  A400: #ff115b,
+  A700: #f6004d,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-plum-compliment: (
+  50: #e6edea,
+  100: #c1d1cb,
+  200: #98b3a8,
+  300: #6f9585,
+  400: #507e6b,
+  500: #316751,
+  600: #2c5f4a,
+  700: #255440,
+  800: #1f4a37,
+  900: #133927,
+  A100: #77ffbb,
+  A200: #44ffa1,
+  A400: #11ff88,
+  A700: #00f67b,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-lightgreen: (
+  50: #f7fbfa,
+  100: #eaf5f2,
+  200: #dcefe9,
+  300: #cee8e0,
+  400: #c4e3da,
+  500: #b9ded3,
+  600: #b2dace,
+  700: #aad5c8,
+  800: #a2d1c2,
+  900: #93c8b7,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #fcfffe,
+  A700: #e3fff6,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-light-compliment: (
+  50: #fdf7f9,
+  100: #faebf0,
+  200: #f7dee6,
+  300: #f3d1dc,
+  400: #f1c7d5,
+  500: #eebdcd,
+  600: #ecb7c8,
+  700: #e9aec1,
+  800: #e7a6ba,
+  900: #e298ae,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #ffffff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$firestarter-primary: mat.define-palette($md-venteragreen);
+$firestarter-accent: mat.define-palette($md-venteradarkgreen, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$firestarter-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$firestarter-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $firestarter-primary,
+      accent: $firestarter-accent,
+      warn: $firestarter-warn,
+    ),
+  )
+);
+
+// $firestarter-theme: mat.define-light-theme(
+//   (
+//     color: (
+//       primary: $firestarter-primary-2,
+//       accent: $firestarter-accent-2,
+//       warn: $firestarter-warn,
+//     ),
+//   )
+// );
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($firestarter-theme);

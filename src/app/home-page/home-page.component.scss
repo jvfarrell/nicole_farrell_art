@@ -1,0 +1,42 @@
+// header {
+//   text-align: center;
+// }
+
+// .card-text {
+//     margin: 10px;
+//     min-width: 300px;
+//     max-width: 300px;
+//     padding: 10px;
+//     background: #212121;
+//   }
+
+  .home-card {
+  max-width: 640px;
+}
+
+.header-image {
+  background-image: url('../../assets/nicole-logo.png');
+  background-size: cover;
+}
+
+.main-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcomeSign {
+  animation: helloSlide 1s ease 0s 1 normal forwards;
+}
+
+@keyframes helloSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
