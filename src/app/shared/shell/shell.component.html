@@ -13,12 +13,12 @@
     <mat-nav-list>
       <a mat-list-item routerLink="/" (click)="drawer.close()">Home</a>
       <a mat-list-item routerLink="/login" (click)="drawer.close()">Login</a>
-      <a mat-list-item routerLink="/brew" (click)="drawer.close()"
+      <!-- <a mat-list-item routerLink="/brew" (click)="drawer.close()"
         >Brew Tour</a
-      >
-      <a mat-list-item routerLink="/brew/start" (click)="drawer.close()"
+      > -->
+      <!-- <a mat-list-item routerLink="/brew/start" (click)="drawer.close()"
         >First Stop</a
-      >
+      > -->
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -41,8 +41,8 @@
 
       <span class="fill-space"></span>
       <div *ngIf="!(isHandset$ | async)">
-        <a mat-button routerLink="/brew">🍺 Brew Tour</a>
-        <a mat-button routerLink="/brew/start">First Stop</a>
+        <!-- <a mat-button routerLink="/brew">🍺 Brew Tour</a> -->
+        <!-- <a mat-button routerLink="/brew/start">First Stop</a> -->
         <a mat-button routerLink="/login">🔑 Login</a>
       </div>
 
@@ -57,9 +57,9 @@
       </button>
 
       <mat-menu #menu="matMenu">
-        <a mat-menu-item href="mailto:jvictorfarrell@gmail.com">
+        <a mat-menu-item href="mailto:nhparaboschi@gmail.com">
           <i>💬</i>
-          <span>Message Victor</span>
+          <span>Message Nicole</span>
         </a>
       </mat-menu>
     </mat-toolbar>

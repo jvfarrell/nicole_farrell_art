@@ -1,0 +1,12 @@
+/* app.component.css */
+
+.featured-artworks {
+  display: flex;
+  justify-content: space-between;
+  /* Add other styles to adjust the layout */
+}
+
+.featured-artwork img {
+  width: 300px; /* Adjust the size of the images as needed */
+  /* Add other styles for the images */
+}

@@ -15,15 +15,27 @@
 
         <p>This site is a work in progress. If you have suggestions or ideas for it, let <a href="mailto:jvictorfarrell@gmail.com">me</a> know.
           </p>
+
+        <!-- homepage.component.html -->
+<!--
+        <h1>Welcome to My Art Website</h1>
+
+        <div *ngIf="recentArtwork.length > 0" class="featured-art-container">
+          <app-featured-art *ngFor="let artwork of recentArtwork" [artwork]="artwork"></app-featured-art>
+        </div>
+
+        <div *ngIf="recentArtwork.length === 0">
+          <p>No recent artwork found.</p>
+        </div> -->
+
         </mat-card-content>
         <mat-card-actions>
           <a mat-raised-button color="primary" style="margin-right: 10px;" href="mailto:nhparaboschi@gmail.com" target="blank">Message Nicole</a>
-          <!-- <a mat-raised-button color="accent" style="margin-right: 10px;" href="https://www.victorfarrell.com/home" target="blank">About the Dev</a> -->
-          <!-- <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button> -->
         </mat-card-actions>
       </mat-card>
   </div>
 </header>
 
+<app-temp-featured-art></app-temp-featured-art>>
 
+<app-about></app-about>

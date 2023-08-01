@@ -1,0 +1,17 @@
+<!-- temp-featured.component.html -->
+
+<!-- <div class="featured-artworks">
+  <div *ngFor="let artwork of featuredArtworks" class="featured-artwork">
+    <img [src]="artwork" alt="Featured Artwork" />
+  </div>
+</div>
+<br> -->
+
+<div *ngFor="let artwork of featuredArtworks; let i = index" class="featured-artworks">
+  <div *ngIf="i % 2 === 0" class="featured-art-left">
+    <app-temp-featured-art></app-temp-featured-art>
+  </div>
+  <div *ngIf="i % 2 !== 0" class="featured-art-right">
+    <app-temp-featured-art></app-temp-featured-art>
+  </div>
+</div>

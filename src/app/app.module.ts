@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,19 +11,25 @@ import { SharedModule } from './shared/shared.module';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { HomePageComponent } from './home-page/home-page.component';
+import { AboutComponent } from './home-page/about/about.component';
+import { FeaturedArtComponent } from './home-page/featured-art/featured-art.component';
+import { TempFeaturedArtComponent } from './home-page/temp-featured-art/temp-featured-art.component';
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent],
+  declarations: [AppComponent, HomePageComponent, AboutComponent, FeaturedArtComponent, TempFeaturedArtComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    // provideStorage(() => getStorage()),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,21 @@
+<!-- featured-art.component.html -->
+
+<h3>{{ artwork.title }}</h3>
+<p>{{ artwork.description }}</p>
+<img [src]="artwork.imageUrl" alt="{{ artwork.title }}" />
+
+<!-- <div *ngIf="recentArtwork.length > 0">
+  <h2>Recent Artwork</h2>
+  <div *ngFor="let artwork of recentArtwork; let i = index" class="featured-art-container">
+    <div *ngIf="i % 2 === 0" class="featured-art-left">
+      <app-featured-art [artwork]="artwork"></app-featured-art>
+    </div>
+    <div *ngIf="i % 2 !== 0" class="featured-art-right">
+      <app-temp-featured-art></app-temp-featured-art>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="recentArtwork.length === 0">
+  <p>No recent artwork found.</p>
+</div> -->

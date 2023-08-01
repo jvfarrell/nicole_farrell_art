@@ -40,3 +40,25 @@
     transform: translateX(0);
   }
 }
+
+/* Container for featured art pieces */
+.featured-art-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Styles for each featured art piece */
+.featured-art-left,
+.featured-art-right {
+  flex-basis: calc(50% - 10px); /* Adjust the width as needed */
+  margin-bottom: 20px;
+  /* Add other styling as needed */
+}
+
+/* Clearfix to prevent layout issues with floated elements */
+.featured-art-container::after {
+  content: '';
+  display: block;
+  clear: both;
+}

@@ -1,0 +1,31 @@
+<!-- upload.component.html -->
+
+<h1>Upload Artwork</h1>
+
+<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" formControlName="title" required />
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <textarea id="price" formControlName="price" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="dimensions">Dimensions</label>
+    <textarea id="dimensions" formControlName="dimensions" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="categoryMaterial">Category / Material</label>
+    <textarea id="categoryMaterial" formControlName="categoryMaterial" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="imageFile">Image</label>
+    <input type="file" id="imageFile" (change)="onFileChange($event)" required />
+  </div>
+  <button type="submit" [disabled]="uploadForm.invalid">Upload Artwork</button>
+</form>

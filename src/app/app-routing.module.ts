@@ -10,9 +10,9 @@ const routes: Routes = [
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
   {
-    path: 'brew',
+    path: 'art',
     loadChildren: () =>
-      import('./brews/brews.module').then((m) => m.BrewsModule),
+      import('./art/art.module').then((m) => m.ArtModule),
     //canActivate: [AuthGuard],
   },
 ];
