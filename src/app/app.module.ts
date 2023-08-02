@@ -11,12 +11,15 @@ import { SharedModule } from './shared/shared.module';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
-import { getStorage, provideStorage } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AboutComponent } from './home-page/about/about.component';
 import { FeaturedArtComponent } from './home-page/featured-art/featured-art.component';
 import { TempFeaturedArtComponent } from './home-page/temp-featured-art/temp-featured-art.component';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { provideFirestore, getFirestore } from "@angular/fire/firestore";
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [AppComponent, HomePageComponent, AboutComponent, FeaturedArtComponent, TempFeaturedArtComponent],
@@ -25,10 +28,12 @@ import { TempFeaturedArtComponent } from './home-page/temp-featured-art/temp-fea
     BrowserAnimationsModule,
     SharedModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    // provideStorage(() => getStorage()),
-    AngularFirestoreModule, // firestore
-    AngularFireAuthModule, // auth
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
+    provideFirestore(() => getFirestore()),
+    // AngularFirestoreModule, // firestore
+    // AngularFireAuthModule, // auth
+    provideAuth(() => getAuth()), // try this later to update Auth
     ReactiveFormsModule,
   ],
   providers: [],

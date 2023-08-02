@@ -14,13 +14,13 @@ export class HomePageComponent implements OnInit {
   constructor(private artworkService: ArtworkService) { }
 
   ngOnInit(): void {
-    this.getRecentArtwork();
+    // this.getRecentArtwork();
   }
 
-  getRecentArtwork() {
-    this.artworkService.getRecentArtwork().subscribe((artwork) => {
-      this.recentArtwork = artwork;
-      console.log(artwork);
-    });
-  }
+  // getRecentArtwork() {
+  //   this.artworkService.getRecentArtwork().subscribe((artwork) => {
+  //     this.recentArtwork = artwork;
+  //     console.log(artwork);
+  //   });
+  // }
 }
