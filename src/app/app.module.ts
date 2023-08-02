@@ -32,7 +32,6 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
     provideStorage(() => getStorage()),
     provideFirestore(() => getFirestore()),
     // AngularFirestoreModule, // firestore
-    // AngularFireAuthModule, // auth
     provideAuth(() => getAuth()), // try this later to update Auth
     ReactiveFormsModule,
   ],

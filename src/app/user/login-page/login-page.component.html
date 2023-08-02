@@ -1,5 +1,5 @@
-<main>
-  <div *ngIf="!(afAuth.authState | async)">
+<!-- <main>
+  <div *ngIf="!(authState | async)">
     <h1>Login</h1>
 
     <button mat-raised-button appGoogleSignin>
@@ -7,16 +7,37 @@
     </button>
   </div>
 
-  <div *ngIf="afAuth.authState | async as user" class="logout">
+  <div *ngIf="authState | async as user" class="logout">
     <p>
       Logged in as <strong>{{ user.email }}</strong>
     </p>
     <h3>Hi, {{ user.displayName }} 👋</h3>
     <p>
       <img src="{{ user.photoURL }}" />
-    </p>
+    </p> -->
     <!-- <p>UID: {{ user.uid }}</p> -->
 
-    <button mat-stroked-button (click)="afAuth.signOut()">Logout</button>
+    <!-- <button mat-stroked-button (click)="logout()">Logout</button>
   </div>
+</main> -->
+
+<main>
+  <h1>Login</h1>
+  <button mat-raised-button (click)="login()" *ngIf="showLoginButton">
+    <img src="/assets/google-logo.svg" /> Login with Google
+  </button>
+
+  <div *ngIf="showLogoutButton">
+    <p>
+      Logged in as <strong>{{ (user | async)?.email }}</strong>
+    </p>
+    <h3>Hi, {{ (user | async)?.displayName }} 👋</h3>
+    <p>
+      <img src="{{ (user | async)?.photoURL }}" />
+    </p>
+
+    <button mat-stroked-button (click)="logout()" *ngIf="showLogoutButton">Log out</button>
+  </div>
+
+
 </main>
