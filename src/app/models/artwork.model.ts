@@ -8,6 +8,7 @@ export interface Artwork {
     dimensions?: string;
     filename?: string;
     imageUrl?: string;
+    sold?: boolean;
   }
 
 export interface ArtworkUpload {
@@ -18,5 +19,6 @@ export interface ArtworkUpload {
     categoryMaterial?: string;
     dimensions?: string;
     filename?: string;
+    sold?: boolean;
   }
 
