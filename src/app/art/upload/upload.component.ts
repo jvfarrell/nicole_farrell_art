@@ -1,72 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ArtworkService } from '../artwork.service';
-import { ArtworkUpload } from 'src/app/models/artwork.model';
+import { from, Observable } from 'rxjs';
+import { startWith } from 'rxjs/operators';
+import { TransferState } from '@angular/platform-browser';
+import { traceUntilFirst } from '@angular/fire/performance';
+import { getDownloadURL, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
+import { keepUnstableUntilFirst } from '@angular/fire';
 
+const TRANSPARENT_PNG
+  = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss']
 })
-export class UploadComponent implements OnInit {
-  uploadForm: FormGroup;
+export class UploadComponent {
+  private readonly storage: Storage;
 
+  public readonly downloadUrl$: Observable<string>;
 
-  constructor(private formBuilder: FormBuilder, private artworkService: ArtworkService) {
-    this.uploadForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      price: ['', Validators.required],
-      categoryMaterial: ['', Validators.required],
-      dimensions: ['', Validators.required],
-      imageFile: [null, Validators.required],
-    });
+  constructor(storage: Storage) {
+    this.storage = storage;
+    const icon = ref(storage, 'volcano-fronds.png');
+    this.downloadUrl$ = from(getDownloadURL(icon)).pipe(
+      keepUnstableUntilFirst,
+      traceUntilFirst('storage'),
+      startWith(TRANSPARENT_PNG),
+    );
   }
 
-  onFileChange(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      this.uploadForm.patchValue({
-        imageFile: file,
-      });
+    uploadFile(input: HTMLInputElement) {
+        if (!input.files) return
+
+        const files: FileList = input.files;
+
+        for (let i = 0; i < files.length; i++) {
+            const file = files.item(i);
+            if (file) {
+                const storageRef = ref(this.storage, file.name);
+                uploadBytesResumable(storageRef, file);
+            }
+        }
     }
+
+
   }
 
-  onSubmit() {
-    if (this.uploadForm.valid) {
-      const formData = {
-        title: this.uploadForm.value.title,
-        description: this.uploadForm.value.description,
-        price: this.uploadForm.value.price,
-        dimensions: this.uploadForm.value.dimensions,
-        filename: this.uploadForm.value.imageFile
-      }
-      // formData.title= this.uploadForm.value.title;
-      // formData.append('description', this.uploadForm.value.description);
-      // formData.append('price', this.uploadForm.value.price);
-      // formData.append('dimensions', this.uploadForm.value.dimensions);
-      // formData.append('description', this.uploadForm.value.description);
-      // formData.append('filename', this.uploadForm.value.imageFile);
-
-      this.artworkService.uploadArtwork(formData, this.uploadForm.value.imageFile);
-
-
-      // .subscribe(
-      //   () => {
-      //     console.log('Artwork uploaded successfully');
-      //     // Reset the form after successful upload
-      //     this.uploadForm.reset();
-      //   },
-      //   (error) => {
-      //     console.error('Error uploading artwork:', error);
-      //     // Handle error here, show error message to the user
-      //   }
-      // );
-      this.uploadForm.reset();
-    }
-  }
-
-  ngOnInit(): void {
-  }
-
-}

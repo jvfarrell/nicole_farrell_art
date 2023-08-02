@@ -1,4 +1,4 @@
-<!-- upload.component.html -->
+<!-- upload.component.html
 
 <h1>Upload Artwork</h1>
 
@@ -28,4 +28,15 @@
     <input type="file" id="imageFile" (change)="onFileChange($event)" required />
   </div>
   <button type="submit" [disabled]="uploadForm.invalid">Upload Artwork</button>
-</form>
+</form> -->
+
+<!--
+<h1>Basic Storage</h1><br>
+<label for="fileUpload">Choose a File</label><br>
+<input id="fileUpload" type="file" #upload><br>
+<button (click)="uploadFile(upload)">Upload</button> -->
+
+<p>
+      Storage!
+      <img [src]="downloadUrl$ | async" width="200" />
+    </p>
