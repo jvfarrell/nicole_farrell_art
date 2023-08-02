@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { Artwork } from '../models/artwork.model';
 import { ArtworkService } from '../art/artwork.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -11,16 +12,11 @@ import { ArtworkService } from '../art/artwork.service';
 export class HomePageComponent implements OnInit {
   recentArtwork: Artwork[] = [];
 
+  artwork: Observable<Artwork[]>;
+
   constructor(private artworkService: ArtworkService) { }
 
   ngOnInit(): void {
-    // this.getRecentArtwork();
+    this.artwork = this.artworkService.artwork$;
   }
-
-  // getRecentArtwork() {
-  //   this.artworkService.getRecentArtwork().subscribe((artwork) => {
-  //     this.recentArtwork = artwork;
-  //     console.log(artwork);
-  //   });
-  // }
 }

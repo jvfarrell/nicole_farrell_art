@@ -2,6 +2,7 @@
 
 <h3>{{ artwork.title }}</h3>
 <p>{{ artwork.description }}</p>
+<p>{{ artwork.price }}</p>
 <img [src]="artwork.imageUrl" alt="{{ artwork.title }}" />
 
 <!-- <div *ngIf="recentArtwork.length > 0">
@@ -19,3 +20,10 @@
 <div *ngIf="recentArtwork.length === 0">
   <p>No recent artwork found.</p>
 </div> -->
+
+<!-- <p>
+    Firestore!
+    <code>{{ testDocValue$ | async | json }}</code>
+    <br>
+    <small>Persistence enabled: <code>{{ (persistenceEnabled | async) ?? false }}</code></small>
+  </p> -->

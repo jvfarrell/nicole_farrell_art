@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import { Observable } from 'rxjs';
+import { traceUntilFirst } from '@angular/fire/performance';
+import { doc, docData, Firestore } from '@angular/fire/firestore';
 import { Artwork } from 'src/app/models/artwork.model';
 
 @Component({
@@ -9,8 +12,14 @@ import { Artwork } from 'src/app/models/artwork.model';
 export class FeaturedArtComponent implements OnInit {
   @Input() artwork: Artwork;
 
+  public readonly testDocValue$: Observable<any>;
 
-  constructor() { }
+  constructor(firestore: Firestore) {
+    // const ref = doc(firestore, this.artwork.filename);
+    // this.testDocValue$ = docData(ref).pipe(
+    //   traceUntilFirst('firestore')
+    // );
+  }
 
   ngOnInit(): void {
   }

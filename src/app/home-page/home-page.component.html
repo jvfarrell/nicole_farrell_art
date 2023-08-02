@@ -17,14 +17,14 @@
           </p>
 
         <!-- homepage.component.html -->
-<!--
+
         <h1>Welcome to My Art Website</h1>
 
-        <div *ngIf="recentArtwork.length > 0" class="featured-art-container">
-          <app-featured-art *ngFor="let artwork of recentArtwork" [artwork]="artwork"></app-featured-art>
-        </div>
+        <!-- <div *ngIf="artwork" class="featured-art-container">
+          <app-featured-art *ngFor="let art of artwork | async"> [artwork]="art"></app-featured-art>
+        </div> -->
 
-        <div *ngIf="recentArtwork.length === 0">
+        <!-- <div *ngIf="recentArtwork.length === 0">
           <p>No recent artwork found.</p>
         </div> -->
 
@@ -36,6 +36,14 @@
   </div>
 </header>
 
-<app-temp-featured-art></app-temp-featured-art>>
+<h1>Artwork</h1>
+    <ul>
+        <li *ngFor="let art of artwork | async">
+            Title: {{art.title}}<br>
+            Price: {{art.price}}<br>
+            Description: {{art.description}}<br>
+            <img [src]="art.imageUrl" alt="{{ art.title }}" width="20%" />
+        </li>
+    </ul>
 
 <app-about></app-about>

@@ -8,9 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 
 // 1. Import the libs you need
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AboutComponent } from './home-page/about/about.component';
@@ -31,8 +28,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage()),
     provideFirestore(() => getFirestore()),
-    // AngularFirestoreModule, // firestore
-    provideAuth(() => getAuth()), // try this later to update Auth
+    provideAuth(() => getAuth()),
     ReactiveFormsModule,
   ],
   providers: [],
