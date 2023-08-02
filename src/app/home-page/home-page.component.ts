@@ -19,4 +19,8 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.artwork = this.artworkService.artwork$;
   }
+
+  goToBottom():void {
+    document.getElementById('contactMe').scrollIntoView();
+  }
 }

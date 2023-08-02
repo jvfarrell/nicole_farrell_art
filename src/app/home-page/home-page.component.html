@@ -9,42 +9,57 @@
         </mat-card-header>
         <!-- <img mat-card-image src="../../assets/ht-logo.png" alt="Happy Tales Logo"> -->
         <mat-card-content>
-          <p class="welcomeSign">Hello Friend 👋😃</p>
+          <h1 class="welcomeSign">Welcome to My Art Website 👋😃</h1>
 
-        <p>Contact Nicole if you would like to buy any of these original pieces.</p>
+          <button mat-stroked-button (click)="goToBottom()">Contact Me</button>
+          <button mat-stroked-button (click)="goToBottom()">About Me</button>
 
-        <p>This site is a work in progress. If you have suggestions or ideas for it, let <a href="mailto:jvictorfarrell@gmail.com">me</a> know.
-          </p>
 
         <!-- homepage.component.html -->
-
-        <h1>Welcome to My Art Website</h1>
-
-        <!-- <div *ngIf="artwork" class="featured-art-container">
-          <app-featured-art *ngFor="let art of artwork | async"> [artwork]="art"></app-featured-art>
-        </div> -->
-
-        <!-- <div *ngIf="recentArtwork.length === 0">
-          <p>No recent artwork found.</p>
-        </div> -->
+        <h2>Recent Artwork</h2>
+        <div *ngFor="let art of artwork | async; let i = index" class="featured-art-container">
+          <div *ngIf="i % 2 === 0" class="featured-art-container">
+            <div>
+              <h3>{{ art.title }}</h3>
+              <p>{{ art.description }}</p>
+              <p>Price: {{ art.price }}</p>
+              <p>Sold: {{ art.sold }}</p>
+            </div>
+            <div>
+              <img [src]="art.imageUrl" alt="{{ art.title }}" class="featured-art-left"/>
+            </div>
+          </div>
+          <div *ngIf="i % 2 !== 0" class="featured-art-container">
+            <div>
+              <h3>{{ art.title }}</h3>
+              <p>{{ art.description }}</p>
+              <p>Price: {{ art.price }}</p>
+              <p>Sold: {{ art.sold }}</p>
+            </div>
+            <div>
+              <img [src]="art.imageUrl" alt="{{ art.title }}" class="featured-art-right"/>
+            </div>
+          </div>
+        </div>
 
         </mat-card-content>
         <mat-card-actions>
+          <p id="contactMe">Contact Nicole if you would like to buy any of these original pieces.</p>
           <a mat-raised-button color="primary" style="margin-right: 10px;" href="mailto:nhparaboschi@gmail.com" target="blank">Message Nicole</a>
         </mat-card-actions>
       </mat-card>
   </div>
 </header>
 
-<h1>Artwork</h1>
+<!-- <h1>Artwork initial</h1>
     <ul>
         <li *ngFor="let art of artwork | async">
             Title: {{art.title}}<br>
             Price: {{art.price}}<br>
             Description: {{art.description}}<br>
-            Sold: {{art.sold}}
+            Sold: {{art.sold}}<br>
             <img [src]="art.imageUrl" alt="{{ art.title }}" width="20%" />
         </li>
-    </ul>
+    </ul> -->
 
 <app-about></app-about>

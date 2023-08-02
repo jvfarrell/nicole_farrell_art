@@ -49,10 +49,19 @@
 }
 
 /* Styles for each featured art piece */
-.featured-art-left,
-.featured-art-right {
-  flex-basis: calc(50% - 10px); /* Adjust the width as needed */
+.featured-art-left {
+  // flex-basis: calc(50% - 10px); /* Adjust the width as needed */
+  order: 1;
   margin-bottom: 20px;
+  width: 40%;
+  /* Add other styling as needed */
+}
+
+.featured-art-right {
+  // flex-basis: calc(50% - 10px); /* Adjust the width as needed */
+  order: 2;
+  margin-bottom: 20px;
+  width: 40%;
   /* Add other styling as needed */
 }
 
